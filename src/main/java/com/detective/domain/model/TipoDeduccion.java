@@ -11,7 +11,7 @@ public enum TipoDeduccion {
 
     private final String etiqueta;
 
-    TipoDeduccion(String etiqueta) {
+    private TipoDeduccion(String etiqueta) {
         this.etiqueta = etiqueta;
     }
 

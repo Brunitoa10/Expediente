@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * Parser por precedencia de operadores (estilo Pratt) para un subconjunto de Prolog estándar.
  */
-final class AnalizadorSintactico {
+public final class AnalizadorSintactico {
 
     private enum Asociatividad { XFX, XFY, YFX }
 
@@ -43,7 +43,7 @@ final class AnalizadorSintactico {
     private int pos;
     private Map<String, Variable> variables = new HashMap<>();
 
-    AnalizadorSintactico(String fuente) {
+    public AnalizadorSintactico(String fuente) {
         this.tokens = new AnalizadorLexico(fuente).tokenizar();
     }
 

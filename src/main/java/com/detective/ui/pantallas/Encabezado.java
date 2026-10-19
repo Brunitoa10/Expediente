@@ -11,12 +11,12 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
 /** Barra superior común a las pantallas secundarias. */
-final class Encabezado {
+public final class Encabezado {
 
     private Encabezado() {
     }
 
-    static JPanel crear(String titulo, String subtitulo, String textoVolver, Runnable volver, JComponent... extras) {
+    public static JPanel crear(String titulo, String subtitulo, String textoVolver, Runnable volver, JComponent... extras) {
         JPanel barra = Componentes.panel(new BorderLayout(16, 0));
         barra.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createMatteBorder(0, 0, 1, 0, Tema.BORDE), Tema.margen(16)));

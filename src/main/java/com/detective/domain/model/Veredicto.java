@@ -11,7 +11,7 @@ public enum Veredicto {
     private final String titulo;
     private final String descripcion;
 
-    Veredicto(String titulo, String descripcion) {
+    private Veredicto(String titulo, String descripcion) {
         this.titulo = titulo;
         this.descripcion = descripcion;
     }

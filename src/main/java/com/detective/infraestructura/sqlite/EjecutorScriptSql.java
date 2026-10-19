@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** Divide un script SQL en sentencias respetando literales entre comillas y comentarios "--". */
-final class EjecutorScriptSql {
+public final class EjecutorScriptSql {
 
     private EjecutorScriptSql() {
     }
@@ -20,7 +20,7 @@ final class EjecutorScriptSql {
         }
     }
 
-    static List<String> dividir(String script) {
+    public static List<String> dividir(String script) {
         List<String> sentencias = new ArrayList<>();
         StringBuilder actual = new StringBuilder();
         boolean enLiteral = false;

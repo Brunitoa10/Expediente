@@ -3,26 +3,26 @@ package com.detective.generacion;
 import java.util.List;
 
 /** Material narrativo combinable para generar personajes, lugares y declaraciones. */
-final class BancoDatos {
+public final class BancoDatos {
 
     private BancoDatos() {
     }
 
-    record Nombre(String nombre, boolean femenino) {
+    public record Nombre(String nombre, boolean femenino) {
     }
 
     /** Relación con la víctima y el motivo que esa relación suele implicar. */
-    record Rol(String masculino, String femenino, String motivo, String admision) {
-        String para(boolean femenino) {
+    public record Rol(String masculino, String femenino, String motivo, String admision) {
+        public String para(boolean femenino) {
             return femenino ? this.femenino : masculino;
         }
     }
 
     /** Coartada verificable por un registro independiente (desde cierto año). */
-    record Coartada(int desde, String lugar, String descripcionLugar, String evidencia, String tipo, String detalle) {
+    public record Coartada(int desde, String lugar, String descripcionLugar, String evidencia, String tipo, String detalle) {
     }
 
-    static final List<Nombre> NOMBRES = List.of(
+    public static final List<Nombre> NOMBRES = List.of(
             new Nombre("Ramón", false), new Nombre("Esteban", false), new Nombre("Julián", false),
             new Nombre("Benito", false), new Nombre("Héctor", false), new Nombre("Daniel", false),
             new Nombre("Tomás", false), new Nombre("Ricardo", false), new Nombre("Ignacio", false),
@@ -47,7 +47,7 @@ final class BancoDatos {
             new Nombre("Josefina", true), new Nombre("Martina", true), new Nombre("Pilar", true),
             new Nombre("Soledad", true), new Nombre("Irene", true));
 
-    static final List<String> APELLIDOS = List.of(
+    public static final List<String> APELLIDOS = List.of(
             "Cáceres", "Ibarra", "Ortega", "Velázquez", "Varela", "Quiroga", "Benítez", "Ferraro",
             "Lafuente", "Barbier", "Kessler", "Ruiz", "Pons", "Acosta", "Aguirre", "Albornoz", "Arce",
             "Bazán", "Bustos", "Cabral", "Campos", "Castro", "Cejas", "Correa", "Domínguez", "Echeverría",
@@ -58,7 +58,7 @@ final class BancoDatos {
             "Zabala", "Mansilla", "Arrieta", "Belgrano", "Castelli", "Irigoyen", "Lugones", "Moreno",
             "Oliveira", "Pereyra", "Rossi", "Bianchi", "Schulz", "O'Neill", "Duarte", "Iriarte", "Luna");
 
-    static final List<String> CIUDADES = List.of(
+    public static final List<String> CIUDADES = List.of(
             "Necochea, Buenos Aires", "Tandil, Buenos Aires", "Bahía Blanca, Buenos Aires",
             "Mar del Plata, Buenos Aires", "San Isidro, Buenos Aires", "La Plata, Buenos Aires",
             "Chivilcoy, Buenos Aires", "Azul, Buenos Aires", "Rosario, Santa Fe", "Rafaela, Santa Fe",
@@ -74,14 +74,14 @@ final class BancoDatos {
             "Catamarca, Catamarca", "La Rioja, La Rioja", "San Luis, San Luis", "Resistencia, Chaco",
             "Formosa, Formosa", "Buenos Aires, CABA", "Montevideo, Uruguay", "Colonia, Uruguay");
 
-    static final List<String> EMPRESAS = List.of(
+    public static final List<String> EMPRESAS = List.of(
             "Metalúrgica del Sur", "Bodegas La Encina", "Transportes Andinos", "Molinos San Ignacio",
             "Frigorífico El Ombú", "Textil Las Acacias", "Aserradero Los Pinos", "Curtiembre La Unión",
             "Yerbatera Ñandutí", "Constructora Horizonte", "Laboratorios Delta", "Editorial Faro",
             "Cooperativa La Esperanza", "Sistemas Australes", "Hotel Gran Continental", "Joyería Imperio",
             "Banco Regional del Plata", "Ingenio Santa Clara", "Olivícola Los Algarrobos", "Lanera Patagónica");
 
-    static final List<Rol> ROLES = List.of(
+    public static final List<Rol> ROLES = List.of(
             new Rol("socio comercial", "socia comercial", "Quería quedarse con la parte del negocio de {V}",
                     "Teníamos diferencias por el negocio, es cierto"),
             new Rol("sobrino", "sobrina", "Heredaría una parte importante de los bienes de {V}",
@@ -115,7 +115,7 @@ final class BancoDatos {
             new Rol("asistente personal", "asistente personal", "{V} lo extorsionaba con un secreto del pasado",
                     "{V} sabía cosas mías que nadie más sabía"));
 
-    static final List<Rol> TESTIGOS = List.of(
+    public static final List<Rol> TESTIGOS = List.of(
             new Rol("sereno del lugar", "serena del lugar", "", ""),
             new Rol("encargado de limpieza", "encargada de limpieza", "", ""),
             new Rol("vecino de enfrente", "vecina de enfrente", "", ""),
@@ -126,13 +126,13 @@ final class BancoDatos {
             new Rol("canillita de la cuadra", "canillita de la cuadra", "", ""));
 
     /** Lugares donde el responsable dice haber estado (coartada falsa, sin registro que la respalde). */
-    static final List<String> COARTADAS_FALSAS = List.of(
+    public static final List<String> COARTADAS_FALSAS = List.of(
             "su casa, durmiendo", "la casa de su madre", "el club social", "un bar del centro",
             "la iglesia del barrio", "la biblioteca", "el campo de un amigo", "su taller",
             "la plaza principal", "el cine", "la estación de trenes", "la casa de un primo");
 
     /** Coartadas verificables del sospechoso señalado: siempre hay un registro independiente. */
-    static final List<Coartada> COARTADAS_VERIFICABLES = List.of(
+    public static final List<Coartada> COARTADAS_VERIFICABLES = List.of(
             new Coartada(1800, "Comisaría de la sección", "Un edificio frío con un libro de guardia prolijo.",
                     "Libro de guardia de la comisaría", "Documento",
                     "{H} estuvo demorado en la comisaría por una pelea callejera desde antes del hecho hasta mucho después: figura en el libro de guardia."),
@@ -158,7 +158,7 @@ final class BancoDatos {
                     "Libro de jornales de la estancia", "Documento",
                     "{H} trabajó en la yerra con otros seis peones, de sol a sol, sin ausentarse."));
 
-    static final List<String> DEFENSAS = List.of(
+    public static final List<String> DEFENSAS = List.of(
             "No tengo nada que ver con esto.",
             "Pregunten a quien quieran.",
             "Es absurdo que me pregunten a mí.",
@@ -166,7 +166,7 @@ final class BancoDatos {
             "Estoy tan sorprendido como todos.",
             "Si sospechan de mí, están perdiendo el tiempo.");
 
-    static final List<String> CONFRONTACIONES = List.of(
+    public static final List<String> CONFRONTACIONES = List.of(
             "Ponés sobre la mesa el informe: {EVID}. {C} lo lee dos veces. El silencio se hace largo hasta que, en voz baja, admite que estuvo en {ESC} a las {HC}.",
             "Ante {EVID}, {C} intenta sostener su versión, pero se contradice. Termina reconociendo que esa noche fue a {ESC}, cerca de las {HC}.",
             "{C} mira {EVID} y se derrumba. \"No era mi intención que terminara así\", dice. Admite haber estado en {ESC} a las {HC}.",

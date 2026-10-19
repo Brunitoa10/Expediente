@@ -23,11 +23,11 @@ public final class Variable implements Termino {
         return ligadura != null;
     }
 
-    void ligar(Termino valor) {
+    public void ligar(Termino valor) {
         this.ligadura = valor;
     }
 
-    void desligar() {
+    public void desligar() {
         this.ligadura = null;
     }
 

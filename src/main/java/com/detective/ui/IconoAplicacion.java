@@ -7,12 +7,12 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
 /** Ícono de lupa dibujado en tiempo de ejecución (sin archivos de imagen). */
-final class IconoAplicacion {
+public final class IconoAplicacion {
 
     private IconoAplicacion() {
     }
 
-    static Image crear() {
+    public static Image crear() {
         BufferedImage img = new BufferedImage(64, 64, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g = img.createGraphics();
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);

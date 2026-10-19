@@ -8,7 +8,7 @@ public enum Dificultad {
     private final String etiqueta;
     private final double multiplicador;
 
-    Dificultad(String etiqueta, double multiplicador) {
+    private Dificultad(String etiqueta, double multiplicador) {
         this.etiqueta = etiqueta;
         this.multiplicador = multiplicador;
     }

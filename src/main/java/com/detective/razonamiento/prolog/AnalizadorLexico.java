@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** Convierte texto Prolog en tokens. Soporta comentarios %, átomos 'citados' y cadenas "dobles". */
-final class AnalizadorLexico {
+public final class AnalizadorLexico {
 
-    enum Tipo { ATOMO, VARIABLE, NUMERO, CADENA, PUNTUACION, FIN_CLAUSULA, EOF }
+    public enum Tipo { ATOMO, VARIABLE, NUMERO, CADENA, PUNTUACION, FIN_CLAUSULA, EOF }
 
-    record Token(Tipo tipo, String texto, boolean pegadoAParentesis) {
+    public record Token(Tipo tipo, String texto, boolean pegadoAParentesis) {
         public boolean es(String valor) {
             return (tipo == Tipo.ATOMO || tipo == Tipo.PUNTUACION) && texto.equals(valor);
         }
@@ -19,7 +19,7 @@ final class AnalizadorLexico {
     private final String fuente;
     private int pos;
 
-    AnalizadorLexico(String fuente) {
+    public AnalizadorLexico(String fuente) {
         this.fuente = fuente;
     }
 

@@ -20,7 +20,7 @@ public final class SqliteCasoRepositorio implements CasoRepositorio {
 
     @FunctionalInterface
     private interface Mapeador<T> {
-        T mapear(ResultSet rs) throws SQLException;
+        public T mapear(ResultSet rs) throws SQLException;
     }
 
     private final ProveedorConexion proveedor;

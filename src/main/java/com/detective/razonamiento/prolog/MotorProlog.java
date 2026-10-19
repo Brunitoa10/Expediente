@@ -20,14 +20,14 @@ public final class MotorProlog {
     /** Continuación: se invoca por cada solución. Devuelve true para detener la búsqueda. */
     @FunctionalInterface
     private interface Continuacion {
-        boolean ejecutar();
+        public boolean ejecutar();
     }
 
     /** Señal interna para propagar el corte hasta la cláusula que lo introdujo. */
     private static final class Corte extends RuntimeException {
         private final Object marca;
 
-        Corte(Object marca) {
+        public Corte(Object marca) {
             super(null, null, false, false);
             this.marca = marca;
         }

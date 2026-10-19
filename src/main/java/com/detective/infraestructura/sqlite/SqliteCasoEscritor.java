@@ -12,14 +12,14 @@ import java.sql.SQLException;
 import java.util.List;
 
 /** Inserta expedientes completos en lote (usado para cargar los casos generados). */
-final class SqliteCasoEscritor {
+public final class SqliteCasoEscritor {
 
     private static final int TAMANIO_LOTE = 500;
 
     private SqliteCasoEscritor() {
     }
 
-    static void insertar(Connection c, List<ExpedienteCaso> expedientes) throws SQLException {
+    public static void insertar(Connection c, List<ExpedienteCaso> expedientes) throws SQLException {
         try (PreparedStatement pc = c.prepareStatement("INSERT INTO caso(id, titulo, subtitulo, lugar_epoca, resumen, "
                 + "objetivo, inspiracion_real, procedimiento_clave, epilogo, dificultad, horas_maximas, culpable_id, "
                 + "hechos_iniciales, orden, categoria) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");

@@ -49,12 +49,12 @@ public final class PantallaSeleccionCaso extends JPanel {
 
     private static final String TODAS = "Todas";
 
-    enum Estado {
+    private enum Estado {
         NUEVO("Nuevo"), EN_CURSO("En curso"), RESUELTO("Resuelto"), INCOMPLETO("Sin condena");
 
         private final String etiqueta;
 
-        Estado(String etiqueta) {
+        private Estado(String etiqueta) {
             this.etiqueta = etiqueta;
         }
 

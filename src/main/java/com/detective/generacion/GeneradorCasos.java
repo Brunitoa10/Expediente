@@ -84,14 +84,14 @@ public final class GeneradorCasos {
         private int contadorPersonas;
         private boolean culpableFemenino;
 
-        Construccion(int numero, Arquetipo arquetipo, Random random) {
+        public Construccion(int numero, Arquetipo arquetipo, Random random) {
             this.numero = numero;
             this.a = arquetipo;
             this.r = random;
             this.pre = String.format("g%04d", numero);
         }
 
-        ExpedienteCaso construir() {
+        public ExpedienteCaso construir() {
             Dificultad dificultad = elegirDificultad();
             int anio = a.anioMinimo() + r.nextInt(Math.max(1, Math.min(a.anioMaximo(), 2025) - a.anioMinimo() + 1));
             String ciudad = elegir(BancoDatos.CIUDADES);
@@ -312,7 +312,7 @@ public final class GeneradorCasos {
             final String motivo;
             final String admision;
 
-            Persona(Rol rol) {
+            public Persona(Rol rol) {
                 Nombre n = nombre(null);
                 this.id = pre + "_s" + (++contadorPersonas);
                 this.nombre = n.nombre() + " " + elegir(BancoDatos.APELLIDOS);
@@ -413,7 +413,7 @@ public final class GeneradorCasos {
             Map.entry("reemplazarlo", "reemplazarla"), Map.entry("lo extorsionaba", "la extorsionaba"),
             Map.entry("lo había estafado", "la había estafado"));
 
-    static String generizar(String texto, boolean femenino) {
+    public static String generizar(String texto, boolean femenino) {
         if (!femenino) {
             return texto;
         }

@@ -26,15 +26,15 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /** Formulario de acusación: a quién se acusa y qué pruebas se elevan al fiscal. */
-final class DialogoAcusacion {
+public final class DialogoAcusacion {
 
-    record Acusacion(String sospechosoId, Set<String> pruebas) {
+    public record Acusacion(String sospechosoId, Set<String> pruebas) {
     }
 
     private DialogoAcusacion() {
     }
 
-    static Optional<Acusacion> pedir(JComponent padre, Investigacion inv) {
+    public static Optional<Acusacion> pedir(JComponent padre, Investigacion inv) {
         Window ventana = SwingUtilities.getWindowAncestor(padre);
         JDialog d = new JDialog(ventana, "Elevar acusación al fiscal", JDialog.ModalityType.APPLICATION_MODAL);
         JPanel raiz = Componentes.panel(new BorderLayout(0, 14));
