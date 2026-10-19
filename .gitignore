@@ -1,0 +1,8 @@
+build/
+target/
+portable/
+datos/
+dist/datos/
+*.db
+*.db-wal
+*.db-shm
